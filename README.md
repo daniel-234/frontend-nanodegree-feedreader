@@ -44,5 +44,23 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 17. No test should be dependent on the results of another.
 18. Callbacks should be used to ensure that feeds are loaded before they are tested.
 19. Implement error handling for undefined variables and out-of-bound array access.
-20. When complete - all of your tests should pass. 
+20. When complete - all of your tests should pass.
 21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
+
+## Getting Started
+
+To load the app, download a copy of the project to your local machine and open the file index.html with your browser. Alternatively, you can load it online from this [GitHub Pages project repository](https://daniel-234.github.io/frontend-nanodegree-feedreader/).
+If all tests pass, you should see Jasmine's output showing the number of specs that ran with 0 failures, on a green background. Any failure, underlined by a red background, reports that there were tests that did not pass.
+
+## Author
+
+* **Daniele Erbì** - [daniel-234](https://github.com/daniel-234)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* I relied on this answer in Stackoverflow to have a hint on how to treat the first looping test:
+* [Stackoverflow - Loop through it() in Jasmine describes 'spec not found'](http://stackoverflow.com/questions/32184607/loop-through-it-in-jasmine-describe-output-spec-not-found)
