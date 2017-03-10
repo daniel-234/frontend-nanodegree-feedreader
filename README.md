@@ -49,7 +49,7 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 
 ## Getting Started
 
-To load the app, download a copy of the project to your local machine and open the file index.html with your browser. Alternatively, you can load it online from this [GitHub Pages project repository](https://daniel-234.github.io/frontend-nanodegree-feedreader/).
+To load the app, download a copy of the project to your local machine and open the file index.html with your browser.
 If all tests pass, you should see Jasmine's output showing the number of specs that ran with 0 failures, on a green background. Any failure, underlined by a red background, reports that there were tests that did not pass.
 
 ## Author
