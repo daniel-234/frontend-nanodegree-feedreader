@@ -31,7 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        // Define a function to test that the URL is defined for each feed and that it is not empty,
+        // Define a function to test that the URL is defined for the i-th feed and that it is not empty,
         // i.e. it has a value that is not falsy.
         function testFeedUrl(i) {
             it('ensure item at position ' + i + ' has a URL and the URL is not empty', function() {
@@ -48,8 +48,19 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        // Define a function to test that the name is defined for the j-th feed and that it is not empty,
+        // i.e. it has a value that is not falsy.
+        function testFeedName(j) {
+            it('ensure item at position ' + j + ' has a name and the name is not empty', function() {
+                expect(allFeeds[j].name).toBeDefined();
+                expect(allFeeds[j].name).toBeTruthy();
+            });
+        }
+        // Loop over the feeds array to test each feed.
+        for (var j = 0; j < allFeeds.length; j++) {
+            testFeedName(j);
+        }
     });
-
 
     /* TODO: Write a new test suite named "The menu" */
 
