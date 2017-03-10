@@ -66,3 +66,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * [Stackoverflow - Loop through it() in Jasmine describes 'spec not found'](http://stackoverflow.com/questions/32184607/loop-through-it-in-jasmine-describe-output-spec-not-found)
 * I relied on an answer in the Discussion Forums to write a test that ensures the menu element is hidden by default (i.e. has a certain class):
 * [Udacity Discussion Forums - Menu visibility test](https://discussions.udacity.com/t/menu-visibility-test/187928/6)
+* This discussion on the Udacity Forums helped me write the test for the menu icon behavior on click events:
+* [Udacity Discussion Forums - Testing CSS Transitions](https://discussions.udacity.com/t/testing-css-transitions/181853/2)

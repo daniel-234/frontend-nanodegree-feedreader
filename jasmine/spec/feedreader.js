@@ -69,21 +69,36 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-            // Write a test that ensures the menu element is hidden by default.
-            // Hint taken from the Udacity Discussion Forums:
-            // https://discussions.udacity.com/t/menu-visibility-test/187928/6
-            var menuElem = document.body.classList;
-            it('ensures the menu element is hidden by default', function() {
-                expect(menuElem).toContain('menu-hidden');
-            });
+        // Use Element.classList to get the class attributes of the element and
+        // use the toContain() matcher.
+        // Hint taken from the Udacity Discussion Forums:
+        // https://discussions.udacity.com/t/menu-visibility-test/187928/6
+        var menuElem = document.body.classList;
+        it('ensures the menu element is hidden by default', function() {
+            expect(menuElem).toContain('menu-hidden');
+        });
 
 
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
+        /* TODO: Write a test that ensures the menu changes
+         * visibility when the menu icon is clicked. This test
+         * should have two expectations: does the menu display when
+         * clicked and does it hide when clicked again.
+         */
+        // Use the jQuery trigger method to trigger the click event and its default behavior for the selected element,
+        // in this case the menu icon. Expect the body element to not contain the 'menu-hidden' class the first time
+        // it is selected and to have it again the second time.
+        // Note that the 'menu-hidden' class hides the menu.
+        // Suggestion on how to write this test taken from the Udacity Discussion Forums:
+        // https://discussions.udacity.com/t/testing-css-transitions/181853/2
+        it('should display the menu when the menu icon is clicked and hide it when clicked again', function() {
+            var menuIcon = $('.menu-icon-link');
+            menuIcon.trigger('click');
+            expect(menuElem).not.toContain('menu-hidden');
+            menuIcon.trigger('click');
+            expect(menuElem).toContain('menu-hidden');
+        });
+
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
