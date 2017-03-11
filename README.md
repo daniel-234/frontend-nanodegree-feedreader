@@ -68,3 +68,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * [Udacity Discussion Forums - Menu visibility test](https://discussions.udacity.com/t/menu-visibility-test/187928/6)
 * This discussion on the Udacity Forums helped me write the test for the menu icon behavior on click events:
 * [Udacity Discussion Forums - Testing CSS Transitions](https://discussions.udacity.com/t/testing-css-transitions/181853/2)
+* This question on the Discussion Forums with the suggestion from a reviewer helped me to clarify what the rubric was asking for the last spec:
+* [Udacity Discussion Forums - I am stuck with last spec, please help!](https://discussions.udacity.com/t/am-stuck-with-last-spec-please-help/225982)

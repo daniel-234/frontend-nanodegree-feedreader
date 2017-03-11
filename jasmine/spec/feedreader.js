@@ -78,8 +78,6 @@ $(function() {
             expect(menuElem).toContain('menu-hidden');
         });
 
-
-
         /* TODO: Write a test that ensures the menu changes
          * visibility when the menu icon is clicked. This test
          * should have two expectations: does the menu display when
@@ -108,22 +106,23 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        // Store the div element with class='feed'.
         var feedDiv = $('.feed');
+        // Take a single argument 'done' that should be called when the async work is complete.
         beforeEach(function(done) {
             loadFeed(0, function() {
                 done();
             });
         });
+        // This spec will not start until the 'done' function is called in the call to 'beforeEach' above. And
+        // this same spec will not complete until its 'done' is called (see the Jasmine documentation about
+        // asynchronous support).
         it('there should be at least a single intial .entry element within the .feed container', function(done) {
-            console.log(feedDiv.children().children()[0].className);
-            console.log(feedDiv.children().children().className);
-            console.log(feedDiv.find('article').css('.entry'));
-            console.log(feedDiv.find('article').className);
-            // expect(feedDiv.html()).toContain('entry');
-            // expect(feedDiv.find('.entry')).toContain('entry');
-            // expect(feedDiv.find('.entry')).toBe(true);
-            console.log(feedDiv.children());
-            console.log(feedDiv.children().length);
+            // Check that the actual matches the expected value.
+            // Here the actual is given by the class of the first child of the anchor
+            // children of feedDiv, i.e. 'entry'.
+            // As the spec requires, the loadFeed function completes its work if
+            // there is at least a single .entry element within the .feed container.
             expect(feedDiv.children().children()[0].className).toContain('entry');
             done();
         });
@@ -135,22 +134,37 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        // Store the div element with class='feed'.
         var feedDiv = $('.feed');
+        // Define the text content of the first article from the first call to loadFeed.
         var firstFeedContent;
+        // Define the text content of the first article from the second call to loadFeed.
         var secondFeedContent;
+        // Take a single argument 'done' that should be called when the async work is complete.
         beforeEach(function(done) {
+            // Call loadFeed the first time, passing as argument the second item of the allFeeds array.
             loadFeed(1, function() {
+                // Store the text content of the first article of the second item.
                 secondFeedContent = feedDiv.children().children()[0].textContent;
+                // Call loadFeed as inner function, passing as argument the first item of the allFeeds array.
                 loadFeed(0, function() {
+                    // Store the text content of the first article of the first item.
                     firstFeedContent = feedDiv.children().children()[0].textContent;
                     done();
                 });
             });
         });
+        // This spec will not start until the 'done' function is called in the call to 'beforeEach' above. And
+        // this same spec will not complete until its 'done' is called (see the Jasmine documentation about
+        // asynchronous support).
         it('the content of a new feed that is loaded by the loadFeed function should change', function(done) {
             console.log(feedDiv.children().children()[0].textContent);
             console.log(firstFeedContent);
             console.log(secondFeedContent);
+            // Check that the actual matches the expected value.
+            // Here the actual is given by the text content of the first article of the first feed.
+            // As the spec requires, if a new feed is loaded by the loadFeed function,
+            // the content should actually change.
             expect(firstFeedContent).not.toBe(secondFeedContent);
             done();
         });
