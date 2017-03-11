@@ -1,6 +1,6 @@
 # Feed Reader Testing
 
-This is the final project of the Front End Nanodegree and we had to provide a test suite that would run against the provided application.
+This is the final project of the Front End Nanodegree and we have to provide a test suite that would run against the provided application.
 The required tests for this project must be written using the Jasmine framework and should test the RSS feed, RSS feed properties, menu default state and menu hiding/showing.
 All tests should be independent of one another and they should all pass.
 
