@@ -127,14 +127,32 @@ $(function() {
             expect(feedDiv.children().children()[0].className).toContain('entry');
             done();
         });
-
     });
 
-    /* TODO: Write a new test suite named "New Feed Selection"
-
+    /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-
+        var feedDiv = $('.feed');
+        var firstFeedContent;
+        var secondFeedContent;
+        beforeEach(function(done) {
+            loadFeed(1, function() {
+                secondFeedContent = feedDiv.children().children()[0].textContent;
+                loadFeed(0, function() {
+                    firstFeedContent = feedDiv.children().children()[0].textContent;
+                    done();
+                });
+            });
+        });
+        it('the content of a new feed that is loaded by the loadFeed function should change', function(done) {
+            console.log(feedDiv.children().children()[0].textContent);
+            console.log(firstFeedContent);
+            console.log(secondFeedContent);
+            expect(firstFeedContent).not.toBe(secondFeedContent);
+            done();
+        });
+     });
 }());
