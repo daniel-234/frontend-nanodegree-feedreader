@@ -98,17 +98,37 @@ $(function() {
             menuIcon.trigger('click');
             expect(menuElem).toContain('menu-hidden');
         });
-
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
-
+    describe('Initial Entries', function() {
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        var feedDiv = $('.feed');
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                done();
+            });
+        });
+        it('there should be at least a single intial .entry element within the .feed container', function(done) {
+            console.log(feedDiv.children().children()[0].className);
+            console.log(feedDiv.children().children().className);
+            console.log(feedDiv.find('article').css('.entry'));
+            console.log(feedDiv.find('article').className);
+            // expect(feedDiv.html()).toContain('entry');
+            // expect(feedDiv.find('.entry')).toContain('entry');
+            // expect(feedDiv.find('.entry')).toBe(true);
+            console.log(feedDiv.children());
+            console.log(feedDiv.children().length);
+            expect(feedDiv.children().children()[0].className).toContain('entry');
+            done();
+        });
+
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection"
 
