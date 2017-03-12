@@ -138,11 +138,11 @@ $(function() {
             // Call loadFeed the first time, passing as argument the second item of the allFeeds array.
             loadFeed(1, function() {
                 // Store the text content of the first article of the second item.
-                secondFeedContent = feedDiv.children().children()[0].textContent;
+                secondFeedContent = $('.feed .entry-link .entry')[0].textContent;
                 // Call loadFeed as inner function, passing as argument the first item of the allFeeds array.
                 loadFeed(0, function() {
                     // Store the text content of the first article of the first item.
-                    firstFeedContent = feedDiv.children().children()[0].textContent;
+                    firstFeedContent = $('.feed .entry-link .entry')[0].textContent;
                     // Check that the actual matches the expected value.
                     // Here the actual is given by the text content of the first article of the first feed.
                     // As the spec requires, if a new feed is loaded by the loadFeed function,
