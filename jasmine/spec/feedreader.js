@@ -35,7 +35,6 @@ $(function() {
         // i.e. it has a value that is not falsy.
         function testFeedUrl(i) {
             it('ensure item at position ' + i + ' has a URL and the URL is not empty', function() {
-                expect(allFeeds[i].url).toBeDefined();
                 expect(allFeeds[i].url).toBeTruthy();
             });
         }
@@ -52,7 +51,6 @@ $(function() {
         // i.e. it has a value that is not falsy.
         function testFeedName(j) {
             it('ensure item at position ' + j + ' has a name and the name is not empty', function() {
-                expect(allFeeds[j].name).toBeDefined();
                 expect(allFeeds[j].name).toBeTruthy();
             });
         }
