@@ -104,20 +104,19 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        // Store the div element with class='feed'.
-        var feedDiv = $('.feed');
         // Take a single argument 'done' that should be called when the async work is complete.
         beforeEach(function(done) {
             loadFeed(0, done);
         });
         // This spec will not start until the 'done' function is called in the call to 'beforeEach' above.
         it('there should be at least a single intial .entry element within the .feed container', function() {
-            // Check that the actual matches the expected value.
-            // Here the actual is given by the class of the first child of the anchor
-            // children of feedDiv, i.e. 'entry'.
+            // Select the '.entry' elements that are inside the '.feed' container element.
+            var entries = $('.feed .entry-link .entry');
+            // Check that the actual matches the expected value, making sure that
+            // there is at least one entry element in the DOM.
             // As the spec requires, the loadFeed function completes its work if
             // there is at least a single .entry element within the .feed container.
-            expect(feedDiv.children().children()[0].className).toContain('entry');
+            expect(entries.length).toBeGreaterThan(0);
         });
     });
 
