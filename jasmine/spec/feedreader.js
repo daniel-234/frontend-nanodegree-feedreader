@@ -126,11 +126,8 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        // Store the div element with class='feed'.
-        var feedDiv = $('.feed'),
-            // Define the text content of the first article from the first call to loadFeed.
-            firstFeedContent,
-            // Define the text content of the first article from the second call to loadFeed.
+        // Define the text content of the first and second articles from the first call to loadFeed.
+        var firstFeedContent,
             secondFeedContent;
         // This spec will not complete until its 'done' is called (see the Jasmine documentation about
         // asynchronous support).
