@@ -108,21 +108,16 @@ $(function() {
         var feedDiv = $('.feed');
         // Take a single argument 'done' that should be called when the async work is complete.
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
-        // This spec will not start until the 'done' function is called in the call to 'beforeEach' above. And
-        // this same spec will not complete until its 'done' is called (see the Jasmine documentation about
-        // asynchronous support).
-        it('there should be at least a single intial .entry element within the .feed container', function(done) {
+        // This spec will not start until the 'done' function is called in the call to 'beforeEach' above.
+        it('there should be at least a single intial .entry element within the .feed container', function() {
             // Check that the actual matches the expected value.
             // Here the actual is given by the class of the first child of the anchor
             // children of feedDiv, i.e. 'entry'.
             // As the spec requires, the loadFeed function completes its work if
             // there is at least a single .entry element within the .feed container.
             expect(feedDiv.children().children()[0].className).toContain('entry');
-            done();
         });
     });
 
@@ -138,8 +133,9 @@ $(function() {
         var firstFeedContent;
         // Define the text content of the first article from the second call to loadFeed.
         var secondFeedContent;
-        // Take a single argument 'done' that should be called when the async work is complete.
-        beforeEach(function(done) {
+        // This spec will not complete until its 'done' is called (see the Jasmine documentation about
+        // asynchronous support).
+        it('the content of a new feed that is loaded by the loadFeed function should change', function(done) {
             // Call loadFeed the first time, passing as argument the second item of the allFeeds array.
             loadFeed(1, function() {
                 // Store the text content of the first article of the second item.
@@ -148,23 +144,14 @@ $(function() {
                 loadFeed(0, function() {
                     // Store the text content of the first article of the first item.
                     firstFeedContent = feedDiv.children().children()[0].textContent;
+                    // Check that the actual matches the expected value.
+                    // Here the actual is given by the text content of the first article of the first feed.
+                    // As the spec requires, if a new feed is loaded by the loadFeed function,
+                    // the content should actually change.
+                    expect(firstFeedContent).not.toBe(secondFeedContent);
                     done();
                 });
             });
-        });
-        // This spec will not start until the 'done' function is called in the call to 'beforeEach' above. And
-        // this same spec will not complete until its 'done' is called (see the Jasmine documentation about
-        // asynchronous support).
-        it('the content of a new feed that is loaded by the loadFeed function should change', function(done) {
-            console.log(feedDiv.children().children()[0].textContent);
-            console.log(firstFeedContent);
-            console.log(secondFeedContent);
-            // Check that the actual matches the expected value.
-            // Here the actual is given by the text content of the first article of the first feed.
-            // As the spec requires, if a new feed is loaded by the loadFeed function,
-            // the content should actually change.
-            expect(firstFeedContent).not.toBe(secondFeedContent);
-            done();
         });
      });
 }());
